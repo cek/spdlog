@@ -180,6 +180,7 @@ if(SPDLOG_SYSTEM_INCLUDES)
 endif()
 
 target_compile_definitions(spdlog PUBLIC SPDLOG_COMPILED_LIB)
+target_compile_definitions(spdlog PRIVATE _DISABLE_CONSTEXPR_MUTEX_CONSTRUCTOR=1)
 target_include_directories(spdlog ${SPDLOG_INCLUDES_LEVEL} PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
                                                                   "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(spdlog PUBLIC Threads::Threads)
